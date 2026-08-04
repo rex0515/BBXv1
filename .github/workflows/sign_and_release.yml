@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-        - 'src/manifest.json'
+      - 'src/manifest.json'
 
 jobs:
   build:
@@ -12,6 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
+      - name: Sign for Firefox
+        run: web-ext sign --source-dir=src/ --artifacts-dir=/home/batuo/bbx/web-ext-artifacts --channel=unlisted
+
       - name: Add to the latest release
         run: python3 /home/batuo/bbx/update.py
-      
