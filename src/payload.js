@@ -168,11 +168,6 @@ if (!document.is_l_infected) {
 				/ /i.test.bind(/^[A-Z]$/i),
 				PUtil.id
 			)
-			static string = new CommandArg(
-				/* a string */
-				_ => true,
-				PUtil.id
-			)
 			static hex_color = new CommandArg(
 				/* a color in hexadecimal format, must include 6 characters */
 				/ /i.test.bind(/^#[0-9A-F]{6}$/i),
