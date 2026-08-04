@@ -1,0 +1,26 @@
+name: lint and create docs
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+        - 'src/payload.js'
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    permissions:
+      contents: write
+    
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.head_ref }}
+          persist-credentials: true
+
+      - name: Lint and create docs
+        run: /python-env/bbx/bin/python3 main.py ../src/payload.js build/docs.md
+        working-directory: ./docs
+  
+      - uses: stefanzweifel/git-auto-commit-action@v7

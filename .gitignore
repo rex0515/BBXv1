@@ -1,0 +1,9 @@
+.idea
+
+docs/.venv
+docs/test
+
+src/bbx-profile
+src/web-ext-artifacts
+src/run.bat
+src/.amo-upload-uuid
